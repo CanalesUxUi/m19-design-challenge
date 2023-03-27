@@ -1,17 +1,55 @@
+/* SCSS Style Guide*/
+$maincolor: #082B59;
+$maincolor2: #131D26;
+$acccolor: #D98555;
+$butcolor2: #59331D;
+$bgcolor: #f2f2f2;
+$hfont: 'Poppins', sans-serif;
+$h1: 2rem;
+$pfont: 'Lato', sans-serif;
+$navmargin: 1rem 1rem 1rem 1rem;
+$figmargin: 5rem 0 0 0;
+$footmargin: 0 1rem 3rem 1rem;
+
+/*button mixins*/
+@mixin mbutton {
+  display: inline-block;
+  background-color: $butcolor2;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  color: $bgcolor;
+  text-decoration: none;
+  border: 3px solid $butcolor2;
+}
+
+@mixin mbotton-hover {
+  background-color: $bgcolor;
+  color: $butcolor2;
+}
+
+/*image rounded corners mixin*/
+@mixin img-style1 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 body {
-  background-color: #082B59;
+  background-color: $maincolor;
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
+  font-family: $pfont;
   line-height: 2;
 }
 
 h1, h2, h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: $hfont;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: $h1;
   margin-bottom: 0;
 }
 
@@ -21,7 +59,7 @@ img {
 }
 
 a {
-  color: #59331d;
+  color: $butcolor2;
 }
 
 a:hover {
@@ -29,7 +67,7 @@ a:hover {
 }
 
 header {
-  border-bottom: 10px solid #d98555;
+  border-bottom: 10px solid $acccolor;
 }
 
 /* navbar styling */
@@ -43,7 +81,7 @@ nav ul {
 }
 
 nav li {
-  margin: 1rem 1rem 1rem 1rem;
+  margin: $navmargin;
   font-size: 1.5rem;
 }
 
@@ -59,14 +97,14 @@ nav .logo {
 }
 
 nav a {
-  color: white;
+  color: $bgcolor;
   text-decoration: none;
   display: block;
   justify-content: center;
 }
 
 nav a:hover {
-  color: #d98555;
+  color: $acccolor;
 }
 
 /* establishes a white background */
@@ -90,41 +128,30 @@ article {
 }
 
 figure {
-  margin: 5rem 0 0 0;
+  margin: $figmargin;
   flex-basis: 40%;
   border-radius: 10px;
 }
 
 figure img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  @include img-style;
 }
 
 figcaption {
-  color: #f2f2f2;
+  color: $bgcolor;
   padding: 0.5rem;
 }
 
 .button {
-  display: inline-block;
-  background-color: #59331D;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
-  margin: 0;
-  color: #f2f2f2;
-  text-decoration: none;
-  border: 3px solid #59331d;
+  @include mbutton;
 }
 
 .button:hover {
-  background-color: #f2f2f2;
-  color: #59331d;
+  @include mbotton-hover;
 }
 
 footer {
-  color: #f2f2f2;
+  color: $bgcolor;
   text-align: center;
 }
 
@@ -138,10 +165,10 @@ footer ul {
 }
 
 footer a {
-  color: #f2f2f2;
+  color: $bgcolor;
   font-size: 2rem;
   display: block;
-  margin: 0 1rem 3rem 1rem;
+  margin: $footmargin;
 }/*# sourceMappingURL=styles.css.map */
 
 /* tablet modifications */
@@ -174,7 +201,7 @@ footer a {
     display: block;
   }
   nav a:hover {
-    color: #d98555;
+    color: $acccolor;
   }
 
 }
@@ -210,6 +237,6 @@ footer a {
     justify-content: center;
   }
   nav a:hover {
-    color: #d98555;
+    color: $acccolor;
   }
 }
